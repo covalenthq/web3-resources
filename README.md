@@ -18,7 +18,7 @@ If you:
 &nbsp;
 ## Templates
 
-| [NFT Collection Dashboard](https://github.com/covalenthq/nft-dashboard-template)| |
+| [NFT Collection Dashboard](https://github.com/covalenthq/nft-dashboard-template)| [XY=K DEX Dashboard](https://github.com/covalenthq/dex-dashboard-template) |
 | :-----------: | :-----------: |
-| [![NFT Collection Dashboard](./images/nft_collection_dashboard.png)](https://github.com/covalenthq/nft-dashboard-template) | |
+| [![NFT Collection Dashboard](./images/nft_collection_dashboard.png)](https://github.com/covalenthq/nft-dashboard-template) | [![XY=K DEX Dashboard](./images/dex_dashboard.png)](https://github.com/covalenthq/dex-dashboard-template) |
 
