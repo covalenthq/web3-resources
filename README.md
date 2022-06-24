@@ -31,6 +31,6 @@ This web3 library is powered by the Covalent Unified API and consists of useful 
 &nbsp;
 ## Web3 Code Alongs
 
-|[Why JSON-RPC doesn't scale](https://github.com/harishraisinghani/challenges-web3-json-rpc-scale/blob/main/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
+|[Why JSON-RPC doesn't scale](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
 | :-----------: | :-----------: |
-|[![Why JSON-RPC doesn't scale](images/json-rpc-scaling-code-along.png)](https://github.com/harishraisinghani/challenges-web3-json-rpc-scale/blob/main/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb)| |
+|[![Why JSON-RPC doesn't scale](images/json-rpc-scaling-code-along.png)](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb)| |
