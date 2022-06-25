@@ -24,11 +24,11 @@ If you:
 
 &nbsp;
 ## Web3 Components Library
-
-This [web3 components library](./components/) (`/components`) is powered by the Covalent Unified API and consists of useful React components to fetch any on-chain data across any Covalent supported blockchain networks.
+The [web3 components library](./components/) in (`/components`) is powered by the Covalent Unified API and consists of useful React components to fetch any on-chain data across any Covalent supported blockchain networks.
 
 &nbsp;
 ## Web3 Code Alongs
+Use these 'Code Along' notebooks to extend your web3 knowledge. Open up these notebooks using [Jupyter](https://jupyter.org/), [Google Colab](https://colab.research.google.com/) or your favourite IPython environment. 
 
 |[Why JSON-RPC doesn't scale](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
 | :-----------: | :-----------: |
