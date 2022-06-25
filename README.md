@@ -24,9 +24,8 @@ If you:
 
 &nbsp;
 ## Web3 Components Library
-https://github.com/covalenthq/web3-components
 
-This web3 library is powered by the Covalent Unified API and consists of useful React components to fetch any on-chain data across any Covalent supported blockchain networks.
+This [web3 components library](./components/) (`/components`) is powered by the Covalent Unified API and consists of useful React components to fetch any on-chain data across any Covalent supported blockchain networks.
 
 &nbsp;
 ## Web3 Code Alongs

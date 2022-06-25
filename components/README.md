@@ -17,7 +17,7 @@ Install with yarn: `yarn install @covalenthq-tools/web3-components`
 ## Web3 Components
 
 ### `<TokenBalances />`
-![Token balances table](./src/assets/token-balances-table.png)
+![Token balances table](https://github.com/covalenthq/web3-resources/blob/main/components/src/assets/token-balances-table.png?raw=true)
 
 The `<TokenBalances />` component provides a complete and paginated balances table with all the ERC20 tokens and NFTs for a given wallet `address` and `chainId`.
 
@@ -34,7 +34,11 @@ import { TokenBalances } from '@covalenthq-tools/web3-components';
 function App() {
   return(
     <div className="TokenBalances">
-      <TokenBalances apikey={process.env.REACT_APP_COVALENT_API_KEY} address="demo.eth" chainId="1" />
+      <TokenBalances 
+        apikey={process.env.REACT_APP_COVALENT_API_KEY} 
+        address="demo.eth" 
+        chainId="1" 
+      />
     </div>
   )
 }
