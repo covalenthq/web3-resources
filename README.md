@@ -5,7 +5,7 @@ All resources use the Covalent API to pull on-chain data seamlessly from [suppor
 
 &nbsp;
 ## Give this repo some :star: power!
-If these templates help you onboard into web3 and #BUIDL faster, please star this repo! :star:
+If these resources help you onboard into web3 and #BUIDL faster, please star this repo! :star:
 
 &nbsp;
 ## Feedback & Support
@@ -16,7 +16,7 @@ If you:
 - Need any support with using any of the templates, message us in our [Discord](https://covalenthq.com/discord) in the #feedback-and-support channel
 
 &nbsp;
-## Web3 Dapp Templates
+## Web3 App Templates
 
 | [XY=K DEX Dashboard](https://github.com/covalenthq/dex-dashboard-template) |[Price Tracker Chrome Extension](https://github.com/covalenthq/price-tracker-chrome-extension)
 | :-----------: | :-----------: |
