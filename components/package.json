@@ -1,5 +1,5 @@
 {
-  "name": "@covalenthq-tools/web3-components",
+  "name": "@covalenthq/web3-components",
   "files": [
     "./dist"
   ],

@@ -8,11 +8,11 @@ Please refer to the [Covalent API reference](https://www.covalenthq.com/docs/api
 
 ## Quick Start
 
-Install with npm: `npm install @covalenthq-tools/web3-components`
+Install with npm: `npm install @covalenthq/web3-components`
 
 or
 
-Install with yarn: `yarn install @covalenthq-tools/web3-components`
+Install with yarn: `yarn install @covalenthq/web3-components`
 
 ## Web3 Components
 
@@ -32,7 +32,7 @@ The `<TokenBalances />` component provides a complete and paginated balances tab
 
 #### Sample code:
 ```jsx
-import { TokenBalances } from '@covalenthq-tools/web3-components';
+import { TokenBalances } from '@covalenthq/web3-components';
 
 function App() {
   return(
