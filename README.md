@@ -6,6 +6,8 @@ All resources use the **Covalent Unified API** to pull on-chain data seamlessly 
 &nbsp;
 ## Quick Start
 
+Fork this repo to get started. 
+
 - [App Templates](#web3-app-templates) - ready-to-use templates for common web3 use cases
 - [Components Library](#web3-components-library) - plug & play styled web3 React components
 - [Code Alongs](#web3-code-alongs) - extend your web3 knowledge with these guided Python notebooks
@@ -28,6 +30,7 @@ If you:
 | [XY=K DEX Dashboard](https://github.com/covalenthq/dex-dashboard-template) |[Price Tracker Chrome Extension](https://github.com/covalenthq/price-tracker-chrome-extension)
 | :-----------: | :-----------: |
 | [![XY=K DEX Dashboard](./images/dex_dashboard.png)](https://github.com/covalenthq/dex-dashboard-template) | [![Price Tracker Chrome Extension](./images/crypto-price-tracker.png)](https://github.com/covalenthq/price-tracker-chrome-extension) |
+| [![Web3 Trivia App](./images/web3-trivia-app.png)](https://github.com/covalenthq/web3-trivia-template) | |
 
 &nbsp;
 ## Web3 Components Library
