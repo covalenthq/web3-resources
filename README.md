@@ -1,7 +1,14 @@
 # Web3 Starter Resources
 Build your multi-chain web3 apps using our ready-to-ship resources!
 
-All resources use the Covalent API to pull on-chain data seamlessly from [supported blockchains](https://www.covalenthq.com/docs/networks/). 
+All resources use the **Covalent Unified API** to pull on-chain data seamlessly from all [supported blockchains](https://www.covalenthq.com/docs/networks/). 
+
+&nbsp;
+## Quick Start
+
+- [App Templates](#web3-app-templates) - ready-to-use templates for common web3 use cases
+- [Components Library](#web3-components-library) - plug & play styled web3 React components
+- [Code Alongs](#web3-code-alongs) - extend your web3 knowledge with these guided Python notebooks
 
 &nbsp;
 ## Give this repo some :star: power!
