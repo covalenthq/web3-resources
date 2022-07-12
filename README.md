@@ -30,6 +30,7 @@ If you:
 | [XY=K DEX Dashboard](https://github.com/covalenthq/dex-dashboard-template) |[Price Tracker Chrome Extension](https://github.com/covalenthq/price-tracker-chrome-extension)
 | :-----------: | :-----------: |
 | [![XY=K DEX Dashboard](./images/dex_dashboard.png)](https://github.com/covalenthq/dex-dashboard-template) | [![Price Tracker Chrome Extension](./images/crypto-price-tracker.png)](https://github.com/covalenthq/price-tracker-chrome-extension) |
+|[Web3 Mobile Trivia Template](https://github.com/covalenthq/web3-trivia-template) | |
 | [![Web3 Trivia App](./images/web3-trivia-app.png)](https://github.com/covalenthq/web3-trivia-template) | |
 
 &nbsp;
