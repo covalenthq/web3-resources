@@ -62,8 +62,8 @@ The Erc20Transfers component returns a paginated list of all the ERC20 token tra
 - `chainId`  
 
 #### Sample code:
-**This page replicates the demo page above, by using a <FormControls> input field to supply the wallet address**
-    
+*This page replicates the demo page above, by using a <FormControls> input field to supply the wallet address*
+
 ``` javascript
 import React, { useState } from 'react'
 import FormControls from './components/FormControls'
