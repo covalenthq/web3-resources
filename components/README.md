@@ -48,11 +48,64 @@ function App() {
 
 export default App;
 ```
-### `<Erc20Transfers />`
 
-![Erc20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1659592388/Erc20Transfer_Demo_tfouuq.gif?raw=true)
+---
+
+### `<Erc20Transfers />`  
+
+**Demo Erc20Transfers page:**: https://xiaogit00.github.io/erc20transfers  
+
+![Erc20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1659639221/Erc20Transfer_Demo2_ouzflg.gif?raw=true)
+
+The Erc20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint. 
 
 #### Props:
-
+`address`  
+`chainId`  
 
 #### Sample code:
+
+``` javascript
+import React, { useState } from 'react'
+import FormControls from './components/FormControls'
+import Erc20Transfers from './components/Erc20Transfers'
+import { Button } from 'antd'
+import './App.less'
+
+
+function App() {
+    const [walletAddress, setWalletAddress] = useState(null)
+
+
+    const onSubmit = (values) => {
+        setWalletAddress(values)
+    }
+
+
+
+    if (walletAddress) {
+        return (
+            <>
+            <div style={{width: "80%", margin: "auto"}}>
+              <h1> {title}  </h1>
+              <FormControls onSubmit={onSubmit}/>
+              <Erc20Transfers address={walletAddress} chainId={1}/>
+            </div>
+            </>
+        )
+    } else {
+        return (
+            <>
+            <div style={{width: "80%", margin: "auto"}}>
+              <h1> {title}  </h1>
+              <FormControls onSubmit={onSubmit}/>
+            </div>
+            </>
+        )
+    }
+}
+
+export default App;
+
+
+```
