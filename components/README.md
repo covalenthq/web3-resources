@@ -50,7 +50,7 @@ export default App;
 ```
 ### `<Erc20Transfers />`
 
-![Erc20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1659591323/Erc20Transfer_Demo_lfajst.gif?raw=true)
+![Erc20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1659592388/Erc20Transfer_Demo_tfouuq.gif?raw=true)
 
 #### Props:
 
