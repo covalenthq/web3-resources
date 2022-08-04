@@ -175,7 +175,7 @@ const multiLegTableColumns = [
     },
     {
         title: 'Amount',
-        dataIndex: 'value',
+        dataIndex: 'amount',
         key: 'value'
     },
     {
