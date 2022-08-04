@@ -47,9 +47,7 @@ function App() {
 }
 
 export default App;
-```
-
----
+```  
 
 ### `<Erc20Transfers />`  
 
@@ -57,14 +55,15 @@ export default App;
 
 ![Erc20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1659639221/Erc20Transfer_Demo2_ouzflg.gif?raw=true)
 
-The Erc20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint. 
+The Erc20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint.
 
 #### Props:
-`address`  
-`chainId`  
+- `address`  
+- `chainId`  
 
 #### Sample code:
-
+**This page replicates the demo page above, by using a <FormControls> input field to supply the wallet address**
+    
 ``` javascript
 import React, { useState } from 'react'
 import FormControls from './components/FormControls'
