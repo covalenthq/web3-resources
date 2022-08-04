@@ -176,7 +176,7 @@ const multiLegTableColumns = [
     {
         title: 'Amount',
         dataIndex: 'amount',
-        key: 'value'
+        key: 'amount'
     },
     {
         title: 'Token Logo',
