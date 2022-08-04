@@ -59,10 +59,8 @@ export default App;
 
 The Erc20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint.
 
-You can find the component [here](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/components/Erc20Transfers.js).
-
-The component has these two dependencies:
-- [erc20Transfers.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/services/erc20Transfers.js) service
+You can find the component under [/web3-resources/components/src/components/Erc20Transfers.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/components/Erc20Transfers.js). It has two dependencies:
+- [erc20Transfers.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/services/erc20Transfers.js)
 - [erc20TransfersHelper.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/utils/erc20TransfersHelper.js)
 
 
