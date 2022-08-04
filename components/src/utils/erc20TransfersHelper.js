@@ -107,14 +107,14 @@ const pruneTransfers = (transfersData, address) => {
             multiLegTransfers = innerTransfersLogItem.map(transfersItem => {
                 const fromAddress = transfersItem.decoded.params[0].value
                 const toAddress = transfersItem.decoded.params[1].value
-                const value = parseInt(transfersItem.decoded.params[2].value)/ (10**parseInt(transferLogEvent[0].sender_contract_decimals))
+                const amount = parseInt(transfersItem.decoded.params[2].value)/ (10**parseInt(transferLogEvent[0].sender_contract_decimals))
                 const innerTokenLogo = transfersItem.sender_logo_url
                 const innerTokenName = transfersItem.sender_name
                 const logOffset = transfersItem.log_offset
                 return {
                     fromAddress,
                     toAddress,
-                    value,
+                    amount,
                     innerTokenLogo,
                     innerTokenName,
                     logOffset
@@ -174,7 +174,7 @@ const multiLegTableColumns = [
         render: (text) => <a href={etherscanURL + 'address/' + text}>{truncateEthAddress(text)}</a>
     },
     {
-        title: 'Value',
+        title: 'Amount',
         dataIndex: 'value',
         key: 'value'
     },
