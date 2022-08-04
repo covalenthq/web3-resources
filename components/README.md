@@ -49,6 +49,8 @@ function App() {
 export default App;
 ```  
 
+---
+
 ### `<Erc20Transfers />`  
 
 **Demo Erc20Transfers page:**: https://xiaogit00.github.io/erc20transfers  
