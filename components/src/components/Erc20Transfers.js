@@ -29,7 +29,7 @@ import truncateEthAddress from 'truncate-eth-address'
 //*             Erc20 Transfers Component
 //**********************************************
 
-const Erc20Transfers = ({address, chainId}) => {
+const ERC20Transfers = ({address, chainId}) => {
 
 
     const etherscanURL = "https://etherscan.io/"
@@ -150,4 +150,4 @@ const Erc20Transfers = ({address, chainId}) => {
 
 }
 
-export default Erc20Transfers
+export default ERC20Transfers

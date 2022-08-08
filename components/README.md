@@ -74,7 +74,7 @@ You can find the component under [/web3-resources/components/src/components/Erc2
 ``` javascript
 import React, { useState } from 'react'
 import FormControls from './components/FormControls'
-import Erc20Transfers from './components/Erc20Transfers'
+import ERC20Transfers from './components/ERC20Transfers'
 import { Button } from 'antd'
 import './App.less'
 
@@ -95,7 +95,7 @@ function App() {
             <div style={{width: "80%", margin: "auto"}}>
               <h1> {title}  </h1>
               <FormControls onSubmit={onSubmit}/>
-              <Erc20Transfers address={walletAddress} chainId={1}/>
+              <ERC20Transfers address={walletAddress} chainId={1}/>
             </div>
             </>
         )
