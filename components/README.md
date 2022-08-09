@@ -53,23 +53,17 @@ export default App;
 
 ### `<ERC20Transfers />`  
 
-**Demo ERC20Transfers page:**: https://xiaogit00.github.io/erc20transfers  
+**Demo ERC20Transfers page:**: https://covalenthq.github.io/erc20Transfers/
 
-![ERC20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1659639221/Erc20Transfer_Demo2_ouzflg.gif?raw=true)
+![ERC20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1660006925/Erc20Transfer_Demo4_darhns.gif)
 
 The ERC20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint.
-
-You can find the component under [/web3-resources/components/src/components/ERC20Transfers.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/components/ERC20Transfers.js). It has two dependencies:
-- [erc20Transfers.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/services/erc20Transfers.js)
-- [erc20TransfersHelper.js](https://github.com/xiaogit00/web3-resources/blob/erc20transfers/components/src/utils/erc20TransfersHelper.js)
-
 
 #### Props:
 - `address`  
 - `chainId`  
 
 #### Sample code:
-*This page replicates the demo page above, by using a <FormControls> input field to supply the wallet address*
 
 ``` javascript
 import React, { useState } from 'react'
