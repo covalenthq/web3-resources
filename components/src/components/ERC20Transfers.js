@@ -8,7 +8,7 @@ import truncateEthAddress from 'truncate-eth-address'
 const ERC20Transfers = ({address, chainId}) => {
 
 
-    const blockexplorerURL = "https://blockscan.com/"
+    const blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(item => item.chainId === chainId)[0].url
     const [txnData, setTxnData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const apiKey = process.env.REACT_APP_COVALENT_API_KEY
