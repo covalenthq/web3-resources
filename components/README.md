@@ -65,10 +65,10 @@ The ERC20Transfers component returns a paginated list of all the ERC20 token tra
 
 #### Sample code:
 
-``` javascript
+``` jsx
 import React, { useState } from 'react'
 import FormControls from './utils/FormControls'
-import ERC20Transfers from './components/ERC20Transfers'
+import { ERC20Transfers } from '@covalenthq/web3-components'
 import { Button } from 'antd'
 import './App.less'
 

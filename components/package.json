@@ -14,7 +14,6 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.21.3",
     "react-scripts": "5.0.1",
-    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "truncate-eth-address": "^1.0.2",
     "@ant-design/icons": "^4.7.0"
