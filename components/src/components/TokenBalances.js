@@ -6,6 +6,7 @@ import defaultLogo from '../assets/default-logo.png'
 function TokenBalances(props) {
   const [data, getData] = useState([])
   const [loading, setLoading] = useState(false)
+  const apiKey = process.env.REACT_APP_COVALENT_API_KEY
 
   useEffect(() => { fetchData() }, [props.address, props.chainId])
 
@@ -16,7 +17,7 @@ function TokenBalances(props) {
   const fetchData = () => {
     setLoading(true)
     let headers = new Headers()
-    let authString = `${props.apikey}:`
+    let authString = `${apiKey}:`
     headers.set('Authorization', 'Basic ' + btoa(authString))
     const URL = `https://api.covalenthq.com/v1/${props.chainId}/address/${props.address}/balances_v2/?quote-currency=USD&format=JSON&nft=true&no-nft-fetch=false`
     fetch(URL, {method: 'GET', headers: headers})
