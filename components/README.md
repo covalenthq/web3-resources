@@ -73,7 +73,7 @@ You can find the component under [/web3-resources/components/src/components/ERC2
 
 ``` javascript
 import React, { useState } from 'react'
-import FormControls from './components/FormControls'
+import FormControls from './utils/FormControls'
 import ERC20Transfers from './components/ERC20Transfers'
 import { Button } from 'antd'
 import './App.less'

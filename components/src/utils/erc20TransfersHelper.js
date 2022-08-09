@@ -1,10 +1,6 @@
 import truncateEthAddress from 'truncate-eth-address'
 
 
-//**********************************************
-//*             fitlerForTransfers helper method
-//**********************************************
-//Receives Covalent transactions_v2 response object as input and outputs only the txns containing 'transfers' log events.
 const filterForTransfers = (res) => {
 
     const txns = res.data.items
@@ -19,11 +15,6 @@ const filterForTransfers = (res) => {
         }
         let isTransfer
 
-        //The main logic is to map over each array of log events and create a new
-        //boolean array that tells us whether there's transfer events in that array:
-        //e.g. [false, false, true]
-        // Each outer iteration (via filter) will create one array containing as
-        // many
         const logEventsBoolArray = txnLogEvents.map(logEvent => {
             if (logEvent.decoded) { //exclude decoded==null cases
                 if (logEvent.decoded.name==="Transfer") {
@@ -33,7 +24,7 @@ const filterForTransfers = (res) => {
                 }
             }
             return isTransfer
-        })// this will create an bool array
+        })
 
         // console.log("logEventsBoolArray",logEventsBoolArray)
 
@@ -45,9 +36,7 @@ const filterForTransfers = (res) => {
     return transfers // an array
 }
 
-//**********************************************
-//*             pruneTransfers helper
-//**********************************************
+
 //Receives an array of transfers
 const pruneTransfers = (transfersData, address) => {
     // console.log("transfersData:", transfersData)
@@ -73,8 +62,6 @@ const pruneTransfers = (transfersData, address) => {
         })
 
         const from = transferFlow === "Out" ? address : transfer.from_address
-        // const to = transferFlow === "Out" ? transfer.to_address : address
-        // console.log(transferLogEvent)
         const to = transferFlow === "Out" ? transferLogEvent[0].decoded.params[1].value : address //Notes on this field: this specifies where the funds are transferred to. Not the contract interacted with.
         const date = transfer.block_signed_at.slice(0,10)
         const tokenName = transferLogEvent[0].sender_name
@@ -85,11 +72,10 @@ const pruneTransfers = (transfersData, address) => {
         const txnHash = transfer.tx_hash
 
 
-        const multiLegChecker = () => { //this function checks whether the txn contains multiple transfers. Returns true when there's > 1 transfers events
+        const multiTransfersChecker = () => { //this function checks whether the txn contains multiple transfers. Returns true when there's > 1 transfers events
             let transfersNum = 0
             for (let i = 0; i < transfer.log_events.length; i++) {
-                // console.log("log events:", transfer.log_events[i])
-                //Okay, there are still log events that are not decoded. For those that are not decoded,
+
                 if (transfer.log_events[i].decoded === null) {
                     return false
                 }
@@ -100,11 +86,11 @@ const pruneTransfers = (transfersData, address) => {
             }
             return transfersNum > 1 ? true : false
         }
-        const isMultiLeg = multiLegChecker()
+        const isMultipleTransfers = multiTransfersChecker()
 
-        let multiLegTransfers = []
-        if (isMultiLeg) {
-            multiLegTransfers = innerTransfersLogItem.map(transfersItem => {
+        let multipleTransfers = []
+        if (isMultipleTransfers) {
+            multipleTransfers = innerTransfersLogItem.map(transfersItem => {
                 const fromAddress = transfersItem.decoded.params[0].value
                 const toAddress = transfersItem.decoded.params[1].value
                 const amount = parseInt(transfersItem.decoded.params[2].value)/ (10**parseInt(transferLogEvent[0].sender_contract_decimals))
@@ -121,7 +107,7 @@ const pruneTransfers = (transfersData, address) => {
                 }
             })
         }
-        multiLegTransfers.sort((a, b) => parseFloat(a.logOffset) - parseFloat(b.logOffset)) // Sort the transfer events by the order in which they occur within the txn
+        multipleTransfers.sort((a, b) => parseFloat(a.logOffset) - parseFloat(b.logOffset)) // Sort the transfer events by the order in which they occur within the txn
 
         return {
             key: txnHash,
@@ -135,8 +121,8 @@ const pruneTransfers = (transfersData, address) => {
             transferValue,
             tokenAddress,
             txnHash,
-            isMultiLeg,
-            multiLegTransfers
+            isMultipleTransfers,
+            multipleTransfers
         }
     })
 
@@ -150,7 +136,6 @@ const pruneTransfers = (transfersData, address) => {
         }
     })
     return transfersWithoutNFTs
-    // console.log("transfers",transfers)
 
 }
 
@@ -160,7 +145,7 @@ const handleImgError = (e) => {
   e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png"
 }
 
-const multiLegTableColumns = [
+const multiTransfersTableColumns = [
     {
         title: 'From',
         dataIndex: 'fromAddress',
@@ -194,5 +179,5 @@ const multiLegTableColumns = [
 export default {
     filterForTransfers,
     pruneTransfers,
-    multiLegTableColumns
+    multiTransfersTableColumns
 }
