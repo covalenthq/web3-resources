@@ -103,12 +103,12 @@ const ERC20Transfers = ({address, chainId}) => {
            key: 'tokenSymbol'
        },
        {
-           title: 'Amt',
+           title: 'Amount',
            dataIndex: 'transferValue',
            key: 'transferValue'
        },
        {
-           title: 'Txn',
+           title: 'Transaction',
            dataIndex: 'txnHash',
            key: 'txnHash',
            render: (txnHash) => <a href={etherscanURL + 'tx/' + txnHash}> View Transaction</a>
