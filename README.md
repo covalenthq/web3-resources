@@ -11,7 +11,7 @@ Fork this repo to get started.
 - [App Templates](#web3-app-templates) - ready-to-use templates for common web3 use cases
 - [Components Library](#web3-components-library) - plug & play styled web3 React components
 - [Code Alongs](#web3-code-alongs) - extend your web3 knowledge with these guided Python notebooks
-- [Code Alongs](#web3-code-alongs) - extend your web3 knowledge with these guided Python notebooks
+- [Partner Resources](#web3-partners) - templates and other developer resources developed by our web3 partners
 
 &nbsp;
 ## Give this repo some :star: power!
