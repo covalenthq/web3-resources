@@ -8,7 +8,7 @@ import truncateEthAddress from 'truncate-eth-address'
 const ERC20Transfers = ({address, chainId}) => {
 
 
-    const etherscanURL = "https://etherscan.io/"
+    const blockexplorerURL = "https://blockscan.com/"
     const [txnData, setTxnData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const apiKey = process.env.REACT_APP_COVALENT_API_KEY
@@ -49,7 +49,7 @@ const ERC20Transfers = ({address, chainId}) => {
            title: 'From',
            dataIndex: 'from',
            key: 'from',
-           render: (text) => <a href={etherscanURL + 'address/' + text}>{truncateEthAddress(text)}</a>
+           render: (text) => <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
        },
        {
            title: 'To',
@@ -57,7 +57,7 @@ const ERC20Transfers = ({address, chainId}) => {
            key: 'to',
            render: (text, record) => {
                if (!record.isMultipleTransfers) {
-                   return <a href={etherscanURL + 'address/' + text}>{truncateEthAddress(text)}</a>
+                   return <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
                } else {
 
                    //This is the content that we provide to the popover table.
@@ -84,7 +84,7 @@ const ERC20Transfers = ({address, chainId}) => {
            title: 'Token Address',
            dataIndex: 'tokenAddress',
            key: 'tokenAddress',
-           render: (text) => <a href={etherscanURL + 'address/' + text}>{truncateEthAddress(text)}</a>
+           render: (text) => <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
        },
        {
            title: 'Token Logo',
@@ -111,7 +111,7 @@ const ERC20Transfers = ({address, chainId}) => {
            title: 'Transaction',
            dataIndex: 'txnHash',
            key: 'txnHash',
-           render: (txnHash) => <a href={etherscanURL + 'tx/' + txnHash}> View Transaction</a>
+           render: (txnHash) => <a href={blockexplorerURL + 'tx/' + txnHash} target="_blank" rel="noopener noreferrer"> View Transaction</a>
        }
    ]
    if (isLoading) {
