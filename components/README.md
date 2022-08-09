@@ -55,7 +55,7 @@ export default App;
 
 **Demo ERC20Transfers page:**: https://covalenthq.github.io/erc20Transfers/
 
-![ERC20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1660070242/Erc20Transfer_Demo5_u1efs7.gif)
+![ERC20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1660076187/Erc20Transfer_Demo6_ptashh.gif)
 
 The ERC20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint.
 
