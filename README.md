@@ -49,6 +49,9 @@ Use these 'Code Along' notebooks to extend your web3 knowledge. Open up these no
 ## Web3 Partners
 Check out these resources developed with our web3 partners:
 
+|[Thirdweb SDK](https://github.com/thirdweb-example/covalent/?utm_source=covalent&utm_medium=web3-resources) | |
+| :-----------: | :-----------: |
+|[![Thirdweb SDK](images/partner-thirdweb.png)](https://github.com/thirdweb-example/covalent/?utm_source=covalent&utm_medium=web3-resources)| |
 
 &nbsp;
 ## Repo on Radicle Network
