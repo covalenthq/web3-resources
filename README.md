@@ -44,3 +44,17 @@ Use these 'Code Along' notebooks to extend your web3 knowledge. Open up these no
 |[Why JSON-RPC doesn't scale](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
 | :-----------: | :-----------: |
 |[![Why JSON-RPC doesn't scale](images/json-rpc-scaling-code-along.png)](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb)| |
+
+&nbsp;
+## Web3 Partners
+Check out these resources developed with our web3 partners:
+
+
+&nbsp;
+## Repo on Radicle Network
+Clone and contribute to this repo on Radicle using the following URN and seed:
+```
+rad clone rad:git:hnrkdptq9o7767emx153w8b8p3ksmdthcij9o --seed maple.radicle.garden
+```
+
+See https://radicle.network/get-started.html for more details.
