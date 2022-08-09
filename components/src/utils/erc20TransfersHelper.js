@@ -58,6 +58,8 @@ const pruneTransfers = (transfersData, address) => {
             return isTransfer
         })
 
+        console.log("Transfer log event", transferLogEvent)
+
         const from = transferFlow === "Out" ? address : transfer.from_address
         const to = transferFlow === "Out" ? transferLogEvent[0].decoded.params[1].value : address //Notes on this field: this specifies where the funds are transferred to. Not the contract interacted with.
         const date = transfer.block_signed_at.slice(0,10)
@@ -67,6 +69,7 @@ const pruneTransfers = (transfersData, address) => {
         const transferValue = parseInt(transferLogEvent[0].decoded.params[2].value) / (10**parseInt(transferLogEvent[0].sender_contract_decimals))
         const tokenAddress = transferLogEvent[0].sender_address
         const txnHash = transfer.tx_hash
+        const isERC721 = transferLogEvent[0].decoded.params[2].name == 'tokenId' ? true : false
 
 
         const multiTransfersChecker = () => { //this function checks whether the txn contains multiple transfers. Returns true when there's > 1 transfers events
@@ -119,19 +122,14 @@ const pruneTransfers = (transfersData, address) => {
             tokenAddress,
             txnHash,
             isMultipleTransfers,
+            isERC721,
             multipleTransfers
         }
     })
 
     // Warning: This exclusion logic (for NFTs) is predicated upon `transferValue` field being 0. This is a hot fix - there are many cases where
     // the `transferValue` field is not 0 for NFTs, and another filter logic must be written.
-    const transfersWithoutNFTs = transfers.filter(transfer => {
-        if (isNaN(transfer.transferValue)) {
-            return false
-        } else {
-            return true
-        }
-    })
+    const transfersWithoutNFTs = transfers.filter(transfer => !transfer.isERC721)
     return transfersWithoutNFTs
 
 }
