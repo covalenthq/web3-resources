@@ -26,8 +26,6 @@ const filterForTransfers = (res) => {
             return isTransfer
         })
 
-        // console.log("logEventsBoolArray",logEventsBoolArray)
-
         //If bool arr contains true, returns true -> filter accepts this entry and
         //it's added to transfers variable
         return logEventsBoolArray.includes(true) ? true : false
@@ -39,7 +37,6 @@ const filterForTransfers = (res) => {
 
 //Receives an array of transfers
 const pruneTransfers = (transfersData, address) => {
-    // console.log("transfersData:", transfersData)
 
     //Maps through each transfer and returns an object array stored in `transfers`
     const transfers = transfersData.map(transfer => {
@@ -49,7 +46,7 @@ const pruneTransfers = (transfersData, address) => {
         const transferFlow = transfer.from_address.toLowerCase() === address.toLowerCase() ? "Out" : "In"
 
         const transferLogEvent = transfer.log_events.filter(logEvent => {
-            //here, I want to return true only for those that are transfer events.
+            //Returns true only for those items that are transfer events.
             let isTransfer;
             if (logEvent.decoded) {
                 if (logEvent.decoded.name === "Transfer") {
