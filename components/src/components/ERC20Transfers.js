@@ -5,7 +5,7 @@ import "antd/dist/antd.css"
 import erc20TransfersHelper from '../utils/erc20TransfersHelper'
 import truncateEthAddress from 'truncate-eth-address'
 
-export const ERC20Transfers = ({address, chainId}) => {
+const ERC20Transfers = ({address, chainId}) => {
 
 
     const blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(item => item.chainId === chainId)[0].url
@@ -128,3 +128,4 @@ export const ERC20Transfers = ({address, chainId}) => {
 
 }
 
+export default ERC20Transfers

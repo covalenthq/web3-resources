@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import { Skeleton, Table } from 'antd'
 import defaultLogo from '../assets/default-logo.png'
 
-export const TokenBalances = ({address, chainId}) => {
+const TokenBalances = ({address, chainId}) => {
   const [data, getData] = useState([])
   const [loading, setLoading] = useState(false)
   const apiKey = process.env.REACT_APP_COVALENT_API_KEY
@@ -21,9 +21,7 @@ export const TokenBalances = ({address, chainId}) => {
     headers.set('Authorization', 'Basic ' + btoa(authString))
     const URL = `https://api.covalenthq.com/v1/${chainId}/address/${address}/balances_v2/?quote-currency=USD&format=JSON&nft=true&no-nft-fetch=false`
     fetch(URL, {method: 'GET', headers: headers})
-      .then((res) =>
-        res.json())
-
+      .then((res) => res.json())
       .then((response) => {
         setLoading(false)
         getData(response.data.items)
@@ -53,7 +51,7 @@ export const TokenBalances = ({address, chainId}) => {
       key: 'balance',
       sorter: (a, b) => a.balance - b.balance,
       render: (_, item) => (
-        <td>{Number.isInteger(item.balance/10**item.contract_decimals) ? (item.balance/10**item.contract_decimals : (item.balance/10**item.contract_decimals).toFixed(4) }</td>
+        <td>{Number.isInteger(item.balance/10**item.contract_decimals) ? (item.balance/10**item.contract_decimals) : (item.balance/10**item.contract_decimals).toFixed(4) }</td>
       ),
     },
     {
@@ -84,10 +82,8 @@ export const TokenBalances = ({address, chainId}) => {
       title: 'Contract Address',
       dataIndex: 'contract_address',
       key: 'contract_address',
-    },
-    
+    }, 
   ]
-
 
   return (
     <>
@@ -100,4 +96,6 @@ export const TokenBalances = ({address, chainId}) => {
   );
 }
 
+
+export default TokenBalances;
   
