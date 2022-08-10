@@ -1,7 +1,8 @@
 import React$1, { useState, useEffect } from 'react';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import { Skeleton, Table, Popover, Button } from 'antd';
 import { InfoCircleOutlined, WarningOutlined } from '@ant-design/icons';
+import '\'antd/dist/antd.min.css';
 import truncateEthAddress from 'truncate-eth-address';
 
 function _slicedToArray(arr, i) {
@@ -82,7 +83,7 @@ var TokenBalances = function TokenBalances(_ref) {
   var apiKey = process.env.REACT_APP_COVALENT_API_KEY;
   useEffect(function () {
     fetchData();
-  }, [props.address, props.chainId]);
+  }, [address, chainId]);
 
   var handleImgError = function handleImgError(e) {
     e.target.src = img;
@@ -480,7 +481,7 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
   var transactionsDataUrl = "https://api.covalenthq.com/v1/".concat(chainId, "/address/").concat(address, "/transactions_v2/");
 
   var handleImgError = function handleImgError(e) {
-    e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png";
+    e.target.src = img;
   };
 
   var fetchData = function fetchData() {
