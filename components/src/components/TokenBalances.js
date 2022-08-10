@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import { Skeleton, Table } from 'antd'
 import defaultLogo from '../assets/default-logo.png'
 
-function TokenBalances(props) {
+export const TokenBalances = ({address, chainId}) => {
   const [data, getData] = useState([])
   const [loading, setLoading] = useState(false)
   const apiKey = process.env.REACT_APP_COVALENT_API_KEY
@@ -19,7 +19,7 @@ function TokenBalances(props) {
     let headers = new Headers()
     let authString = `${apiKey}:`
     headers.set('Authorization', 'Basic ' + btoa(authString))
-    const URL = `https://api.covalenthq.com/v1/${props.chainId}/address/${props.address}/balances_v2/?quote-currency=USD&format=JSON&nft=true&no-nft-fetch=false`
+    const URL = `https://api.covalenthq.com/v1/${chainId}/address/${address}/balances_v2/?quote-currency=USD&format=JSON&nft=true&no-nft-fetch=false`
     fetch(URL, {method: 'GET', headers: headers})
       .then((res) =>
         res.json())
@@ -100,5 +100,4 @@ function TokenBalances(props) {
   );
 }
 
-export default TokenBalances;
   

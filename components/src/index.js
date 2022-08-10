@@ -1,2 +1,2 @@
-export { default as TokenBalances } from './components/TokenBalances';
-export { ERC20Transfers } from './components/ERC20Transfers';
+export * from './components/TokenBalances';
+export * from './components/ERC20Transfers';
