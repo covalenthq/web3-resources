@@ -42,9 +42,9 @@ The [web3 components library](./components/) in (`/components`) is powered by th
 ## Web3 Code Alongs
 Use these 'Code Along' notebooks to extend your web3 knowledge. Open up these notebooks using [Jupyter](https://jupyter.org/), [Google Colab](https://colab.research.google.com/) or your favourite IPython environment. 
 
-|[Why JSON-RPC doesn't scale](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
+|[Intro to Wallets in Web3](./code-alongs/Introduction_to_Wallets_in_Web3.ipynb) | [Why JSON-RPC doesn't scale](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) |
 | :-----------: | :-----------: |
-|[![Why JSON-RPC doesn't scale](images/code-along-jsonrpc-scaling.png)](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb)| |
+|[![Intro to Wallets in Web3](images/code-along-wallets-web3.png)](./code-alongs/Introduction_to_Wallets_in_Web3.ipynb)| [![Why JSON-RPC doesn't scale](images/code-along-jsonrpc-scaling.png)](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) |
 
 &nbsp;
 ## Web3 Partners
@@ -54,11 +54,3 @@ Check out these resources developed with our web3 partners:
 | :-----------: | :-----------: |
 |[![Thirdweb SDK](images/partner-thirdweb-sdk.png)](https://github.com/thirdweb-example/covalent/?utm_source=covalent&utm_medium=web3-resources)| |
 
-&nbsp;
-## Repo on Radicle Network
-Clone and contribute to this repo on Radicle using the following URN and seed:
-```
-rad clone rad:git:hnrkdptq9o7767emx153w8b8p3ksmdthcij9o --seed maple.radicle.garden
-```
-
-See https://radicle.network/get-started.html for more details.
