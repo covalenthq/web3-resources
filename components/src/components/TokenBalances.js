@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.min.css'
 import { Skeleton, Table } from 'antd'
 import defaultLogo from '../assets/default-logo.png'
 
@@ -8,7 +8,7 @@ const TokenBalances = ({address, chainId}) => {
   const [loading, setLoading] = useState(false)
   const apiKey = process.env.REACT_APP_COVALENT_API_KEY
 
-  useEffect(() => { fetchData() }, [props.address, props.chainId])
+  useEffect(() => { fetchData() }, [address, chainId])
 
   const handleImgError = (e) => {
     e.target.src = defaultLogo

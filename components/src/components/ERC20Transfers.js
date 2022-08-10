@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Popover, Button } from 'antd'
 import { WarningOutlined, InfoCircleOutlined } from '@ant-design/icons'
-import "antd/dist/antd.css"
+import "'antd/dist/antd.min.css"
 import erc20TransfersHelper from '../utils/erc20TransfersHelper'
 import truncateEthAddress from 'truncate-eth-address'
+import defaultLogo from '../assets/default-logo.png'
 
 const ERC20Transfers = ({address, chainId}) => {
     const blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(item => item.chainId === chainId)[0].url
@@ -13,7 +14,7 @@ const ERC20Transfers = ({address, chainId}) => {
     const transactionsDataUrl = `https://api.covalenthq.com/v1/${chainId}/address/${address}/transactions_v2/`
 
     const handleImgError = (e) => {
-      e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png"
+      e.target.src = defaultLogo
     }
 
     const fetchData = () => {
