@@ -6,8 +6,6 @@ import erc20TransfersHelper from '../utils/erc20TransfersHelper'
 import truncateEthAddress from 'truncate-eth-address'
 
 const ERC20Transfers = ({address, chainId}) => {
-
-
     const blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(item => item.chainId === chainId)[0].url
     const [txnData, setTxnData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
