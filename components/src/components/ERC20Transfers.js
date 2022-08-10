@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Popover, Button } from 'antd'
 import { WarningOutlined, InfoCircleOutlined } from '@ant-design/icons'
-import "'antd/dist/antd.min.css"
+import 'antd/dist/antd.min.css'
 import erc20TransfersHelper from '../utils/erc20TransfersHelper'
 import truncateEthAddress from 'truncate-eth-address'
 import defaultLogo from '../assets/default-logo.png'

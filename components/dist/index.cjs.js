@@ -6,7 +6,6 @@ var React$1 = require('react');
 require('antd/dist/antd.min.css');
 var antd = require('antd');
 var icons = require('@ant-design/icons');
-require('\'antd/dist/antd.min.css');
 var truncateEthAddress = require('truncate-eth-address');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }

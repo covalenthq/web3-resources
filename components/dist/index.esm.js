@@ -2,7 +2,6 @@ import React$1, { useState, useEffect } from 'react';
 import 'antd/dist/antd.min.css';
 import { Skeleton, Table, Popover, Button } from 'antd';
 import { InfoCircleOutlined, WarningOutlined } from '@ant-design/icons';
-import '\'antd/dist/antd.min.css';
 import truncateEthAddress from 'truncate-eth-address';
 
 function _slicedToArray(arr, i) {
