@@ -306,8 +306,6 @@ var pruneTransfers = function pruneTransfers(transfersData, address) {
   return transfersWithoutNFTs;
 };
 
-var blockexplorerURL = "https://blockscan.com/";
-
 var handleImgError = function handleImgError(e) {
   e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png";
 };
@@ -463,7 +461,7 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
   var address = _ref.address,
       chainId = _ref.chainId;
   var blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(function (item) {
-    return item.chainId === chainId;
+    return parseInt(item.chainId) === parseInt(chainId);
   })[0].url;
 
   var _useState = useState([]),

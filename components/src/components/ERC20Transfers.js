@@ -7,7 +7,7 @@ import truncateEthAddress from 'truncate-eth-address'
 import defaultLogo from '../assets/default-logo.png'
 
 const ERC20Transfers = ({address, chainId}) => {
-    const blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(item => item.chainId === chainId)[0].url
+    const blockexplorerURL = erc20TransfersHelper.blockExplorerURLs.filter(item => parseInt(item.chainId) === parseInt(chainId))[0].url
     const [txnData, setTxnData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const apiKey = process.env.REACT_APP_COVALENT_API_KEY

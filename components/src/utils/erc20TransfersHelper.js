@@ -134,7 +134,6 @@ const pruneTransfers = (transfersData, address) => {
 
 }
 
-const blockexplorerURL = "https://blockscan.com/"
 
 const handleImgError = (e) => {
   e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png"
