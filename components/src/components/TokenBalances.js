@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import 'antd/dist/antd.min.css'
-import { Skeleton, Table } from 'antd'
+import { Table } from 'antd'
 import defaultLogo from '../assets/default-logo.png'
 
 const TokenBalances = ({address, chainId}) => {
   const [data, getData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const apiKey = process.env.REACT_APP_COVALENT_API_KEY
 
   useEffect(() => { fetchData() }, [address, chainId])
@@ -15,7 +15,7 @@ const TokenBalances = ({address, chainId}) => {
   }
 
   const fetchData = () => {
-    setLoading(true)
+    setIsLoading(true)
     let headers = new Headers()
     let authString = `${apiKey}:`
     headers.set('Authorization', 'Basic ' + btoa(authString))
@@ -23,7 +23,7 @@ const TokenBalances = ({address, chainId}) => {
     fetch(URL, {method: 'GET', headers: headers})
       .then((res) => res.json())
       .then((response) => {
-        setLoading(false)
+        setIsLoading(false)
         getData(response.data.items)
       })
   }
@@ -51,7 +51,7 @@ const TokenBalances = ({address, chainId}) => {
       key: 'balance',
       sorter: (a, b) => a.balance - b.balance,
       render: (_, item) => (
-        <td>{Number.isInteger(item.balance/10**item.contract_decimals) ? (item.balance/10**item.contract_decimals) : (item.balance/10**item.contract_decimals).toFixed(4) }</td>
+        Number.isInteger(item.balance/10**item.contract_decimals) ? (item.balance/10**item.contract_decimals) : (item.balance/10**item.contract_decimals).toFixed(4)
       ),
     },
     {
@@ -85,15 +85,15 @@ const TokenBalances = ({address, chainId}) => {
     }, 
   ]
 
-  return (
-    <>
-      <div className="balances">
-        <Skeleton loading={loading} active>
-          <Table columns={columns} dataSource={data} />
-        </Skeleton>
-      </div>
-    </>
-  );
+  if (isLoading) {
+    return (
+        <Table loading={true} />
+    )
+  } else if (!isLoading && data) {
+      return (
+          <Table columns={columns} dataSource={data} rowKey='contract_address' />
+      )
+  }
 }
 
 

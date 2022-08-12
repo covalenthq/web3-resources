@@ -64,30 +64,28 @@ The ERC20Transfers component returns a paginated list of all the ERC20 token tra
 - `chainId`  
 
 #### Sample code:
-
 ``` jsx
-import React, { useState } from 'react'
-import FormControls from './utils/FormControls'
+import { useState } from 'react'
 import { ERC20Transfers } from '@covalenthq/web3-components'
-import { Button } from 'antd'
-import './App.less'
-
-
+import { Input } from 'antd'
+const { Search } = Input
+const FormControls = ({onSubmit}) => {
+    return (
+        <Search placeholder='Enter Wallet Address or ENS' onSearch={onSubmit} enterButton
+        style={{
+            width: 500,
+        }}/>
+    )
+}
 function App() {
     const [walletAddress, setWalletAddress] = useState(null)
-
-
     const onSubmit = (values) => {
         setWalletAddress(values)
     }
-
-
-
     if (walletAddress) {
         return (
             <>
-            <div style={{width: "80%", margin: "auto"}}>
-              <h1> {title}  </h1>
+            <div style={{width: '80%', margin: 'auto'}}>
               <FormControls onSubmit={onSubmit}/>
               <ERC20Transfers address={walletAddress} chainId={1}/>
             </div>
@@ -96,16 +94,13 @@ function App() {
     } else {
         return (
             <>
-            <div style={{width: "80%", margin: "auto"}}>
-              <h1> {title}  </h1>
+            <div style={{width: '80%', margin: 'auto'}}>
               <FormControls onSubmit={onSubmit}/>
             </div>
             </>
         )
     }
 }
-
 export default App;
-
 
 ```

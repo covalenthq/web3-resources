@@ -127,8 +127,6 @@ const pruneTransfers = (transfersData, address) => {
         }
     })
 
-    // Warning: This exclusion logic (for NFTs) is predicated upon `transferValue` field being 0. This is a hot fix - there are many cases where
-    // the `transferValue` field is not 0 for NFTs, and another filter logic must be written.
     const transfersWithoutNFTs = transfers.filter(transfer => !transfer.isERC721)
     return transfersWithoutNFTs
 
@@ -139,36 +137,40 @@ const handleImgError = (e) => {
   e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png"
 }
 
-const multiTransfersTableColumns = [
-    {
-        title: 'From',
-        dataIndex: 'fromAddress',
-        key: 'from',
-        render: (text) => <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
-    },
-    {
-        title: 'To',
-        dataIndex: 'toAddress',
-        key: 'to',
-        render: (text) => <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
-    },
-    {
-        title: 'Amount',
-        dataIndex: 'amount',
-        key: 'amount'
-    },
-    {
-        title: 'Token Logo',
-        dataIndex: 'innerTokenLogo',
-        key: 'tokenLogo',
-        render: (text) => <img alt="token logo" onError={handleImgError} src={text} width="40"/>
-    },
-    {
-        title: 'Token Name',
-        dataIndex: 'innerTokenName',
-        key: 'tokenName'
-    }
-]
+const multiTransfersTableColumns = (blockexplorerURL) => {
+    const columns = [
+        {
+            title: 'From',
+            dataIndex: 'fromAddress',
+            key: 'from',
+            render: (text) => <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
+        },
+        {
+            title: 'To',
+            dataIndex: 'toAddress',
+            key: 'to',
+            render: (text) => <a href={blockexplorerURL + 'address/' + text} target="_blank" rel="noopener noreferrer">{truncateEthAddress(text)}</a>
+        },
+        {
+            title: 'Amount',
+            dataIndex: 'amount',
+            key: 'amount'
+        },
+        {
+            title: 'Token Logo',
+            dataIndex: 'innerTokenLogo',
+            key: 'tokenLogo',
+            render: (text) => <img alt="token logo" onError={handleImgError} src={text} width="40"/>
+        },
+        {
+            title: 'Token Name',
+            dataIndex: 'innerTokenName',
+            key: 'tokenName'
+        }
+    ]
+
+    return columns
+} 
 
 const blockExplorerURLs = [
     {

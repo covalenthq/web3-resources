@@ -20,7 +20,8 @@ export default {
         image(),
         babel({
             exclude: 'node_modules/**',
-            babelHelpers: 'bundled' 
+            babelHelpers: 'bundled',
+            presets: ["@babel/preset-env", ["@babel/preset-react", {"runtime": "automatic"}]] 
         }),
         del({ targets: ['dist/*'] }),
     ],

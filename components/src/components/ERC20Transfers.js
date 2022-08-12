@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Table, Popover, Button } from 'antd'
 import { WarningOutlined, InfoCircleOutlined } from '@ant-design/icons'
 import 'antd/dist/antd.min.css'
@@ -62,7 +62,7 @@ const ERC20Transfers = ({address, chainId}) => {
                    //This is the content that we provide to the popover table.
                    const multiTransfersContent = (
                        <>
-                       <Table dataSource={record.multipleTransfers} columns={erc20TransfersHelper.multiTransfersTableColumns}/>
+                       <Table dataSource={record.multipleTransfers} columns={erc20TransfersHelper.multiTransfersTableColumns(blockexplorerURL)}/>
                        <InfoCircleOutlined /><em> There are multiple transfer events in this single transaction.</em>
                        </>
                    )
@@ -120,11 +120,9 @@ const ERC20Transfers = ({address, chainId}) => {
    } else if (!isLoading && txnData) {
        console.log("txnData",txnData)
        return (
-           <Table dataSource={txnData} columns={columns} />
+           <Table dataSource={txnData} columns={columns} rowKey='txnHash' />
        )
    }
-
-
 }
 
 export default ERC20Transfers

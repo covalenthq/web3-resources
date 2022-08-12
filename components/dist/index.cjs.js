@@ -2,15 +2,15 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var React$1 = require('react');
+var react = require('react');
 require('antd/dist/antd.min.css');
 var antd = require('antd');
+var jsxRuntime = require('react/jsx-runtime');
 var icons = require('@ant-design/icons');
 var truncateEthAddress = require('truncate-eth-address');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var React__default = /*#__PURE__*/_interopDefaultLegacy(React$1);
 var truncateEthAddress__default = /*#__PURE__*/_interopDefaultLegacy(truncateEthAddress);
 
 function _slicedToArray(arr, i) {
@@ -78,18 +78,18 @@ var TokenBalances = function TokenBalances(_ref) {
   var address = _ref.address,
       chainId = _ref.chainId;
 
-  var _useState = React$1.useState([]),
+  var _useState = react.useState([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       getData = _useState2[1];
 
-  var _useState3 = React$1.useState(false),
+  var _useState3 = react.useState(true),
       _useState4 = _slicedToArray(_useState3, 2),
-      loading = _useState4[0],
-      setLoading = _useState4[1];
+      isLoading = _useState4[0],
+      setIsLoading = _useState4[1];
 
   var apiKey = process.env.REACT_APP_COVALENT_API_KEY;
-  React$1.useEffect(function () {
+  react.useEffect(function () {
     fetchData();
   }, [address, chainId]);
 
@@ -98,7 +98,7 @@ var TokenBalances = function TokenBalances(_ref) {
   };
 
   var fetchData = function fetchData() {
-    setLoading(true);
+    setIsLoading(true);
     var headers = new Headers();
     var authString = "".concat(apiKey, ":");
     headers.set('Authorization', 'Basic ' + btoa(authString));
@@ -109,7 +109,7 @@ var TokenBalances = function TokenBalances(_ref) {
     }).then(function (res) {
       return res.json();
     }).then(function (response) {
-      setLoading(false);
+      setIsLoading(false);
       getData(response.data.items);
     });
   };
@@ -119,7 +119,7 @@ var TokenBalances = function TokenBalances(_ref) {
     dataIndex: 'logo_url',
     key: 'logo_url',
     render: function render(text) {
-      return /*#__PURE__*/React__default["default"].createElement("img", {
+      return /*#__PURE__*/jsxRuntime.jsx("img", {
         src: text,
         onError: handleImgError,
         style: {
@@ -144,7 +144,7 @@ var TokenBalances = function TokenBalances(_ref) {
       return a.balance - b.balance;
     },
     render: function render(_, item) {
-      return /*#__PURE__*/React__default["default"].createElement("td", null, Number.isInteger(item.balance / Math.pow(10, item.contract_decimals)) ? item.balance / Math.pow(10, item.contract_decimals) : (item.balance / Math.pow(10, item.contract_decimals)).toFixed(4));
+      return Number.isInteger(item.balance / Math.pow(10, item.contract_decimals)) ? item.balance / Math.pow(10, item.contract_decimals) : (item.balance / Math.pow(10, item.contract_decimals)).toFixed(4);
     }
   }, {
     title: 'Type',
@@ -171,15 +171,18 @@ var TokenBalances = function TokenBalances(_ref) {
     dataIndex: 'contract_address',
     key: 'contract_address'
   }];
-  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "balances"
-  }, /*#__PURE__*/React__default["default"].createElement(antd.Skeleton, {
-    loading: loading,
-    active: true
-  }, /*#__PURE__*/React__default["default"].createElement(antd.Table, {
-    columns: columns,
-    dataSource: data
-  }))));
+
+  if (isLoading) {
+    return /*#__PURE__*/jsxRuntime.jsx(antd.Table, {
+      loading: true
+    });
+  } else if (!isLoading && data) {
+    return /*#__PURE__*/jsxRuntime.jsx(antd.Table, {
+      columns: columns,
+      dataSource: data,
+      rowKey: "contract_address"
+    });
+  }
 };
 
 var filterForTransfers = function filterForTransfers(res) {
@@ -306,9 +309,7 @@ var pruneTransfers = function pruneTransfers(transfersData, address) {
       isERC721: isERC721,
       multipleTransfers: multipleTransfers
     };
-  }); // Warning: This exclusion logic (for NFTs) is predicated upon `transferValue` field being 0. This is a hot fix - there are many cases where
-  // the `transferValue` field is not 0 for NFTs, and another filter logic must be written.
-
+  });
   var transfersWithoutNFTs = transfers.filter(function (transfer) {
     return !transfer.isERC721;
   });
@@ -319,49 +320,55 @@ var handleImgError = function handleImgError(e) {
   e.target.src = "https://res.cloudinary.com/dl4murstw/image/upload/v1659590465/default-logo_om9kbi.png";
 };
 
-var multiTransfersTableColumns = [{
-  title: 'From',
-  dataIndex: 'fromAddress',
-  key: 'from',
-  render: function render(text) {
-    return /*#__PURE__*/React.createElement("a", {
-      href: blockexplorerURL + 'address/' + text,
-      target: "_blank",
-      rel: "noopener noreferrer"
-    }, truncateEthAddress__default["default"](text));
-  }
-}, {
-  title: 'To',
-  dataIndex: 'toAddress',
-  key: 'to',
-  render: function render(text) {
-    return /*#__PURE__*/React.createElement("a", {
-      href: blockexplorerURL + 'address/' + text,
-      target: "_blank",
-      rel: "noopener noreferrer"
-    }, truncateEthAddress__default["default"](text));
-  }
-}, {
-  title: 'Amount',
-  dataIndex: 'amount',
-  key: 'amount'
-}, {
-  title: 'Token Logo',
-  dataIndex: 'innerTokenLogo',
-  key: 'tokenLogo',
-  render: function render(text) {
-    return /*#__PURE__*/React.createElement("img", {
-      alt: "token logo",
-      onError: handleImgError,
-      src: text,
-      width: "40"
-    });
-  }
-}, {
-  title: 'Token Name',
-  dataIndex: 'innerTokenName',
-  key: 'tokenName'
-}];
+var multiTransfersTableColumns = function multiTransfersTableColumns(blockexplorerURL) {
+  var columns = [{
+    title: 'From',
+    dataIndex: 'fromAddress',
+    key: 'from',
+    render: function render(text) {
+      return /*#__PURE__*/jsxRuntime.jsx("a", {
+        href: blockexplorerURL + 'address/' + text,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        children: truncateEthAddress__default["default"](text)
+      });
+    }
+  }, {
+    title: 'To',
+    dataIndex: 'toAddress',
+    key: 'to',
+    render: function render(text) {
+      return /*#__PURE__*/jsxRuntime.jsx("a", {
+        href: blockexplorerURL + 'address/' + text,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        children: truncateEthAddress__default["default"](text)
+      });
+    }
+  }, {
+    title: 'Amount',
+    dataIndex: 'amount',
+    key: 'amount'
+  }, {
+    title: 'Token Logo',
+    dataIndex: 'innerTokenLogo',
+    key: 'tokenLogo',
+    render: function render(text) {
+      return /*#__PURE__*/jsxRuntime.jsx("img", {
+        alt: "token logo",
+        onError: handleImgError,
+        src: text,
+        width: "40"
+      });
+    }
+  }, {
+    title: 'Token Name',
+    dataIndex: 'innerTokenName',
+    key: 'tokenName'
+  }];
+  return columns;
+};
+
 var blockExplorerURLs = [{
   chainId: 1,
   url: 'https://etherscan.io/'
@@ -473,12 +480,12 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
     return parseInt(item.chainId) === parseInt(chainId);
   })[0].url;
 
-  var _useState = React$1.useState([]),
+  var _useState = react.useState([]),
       _useState2 = _slicedToArray(_useState, 2),
       txnData = _useState2[0],
       setTxnData = _useState2[1];
 
-  var _useState3 = React$1.useState(true),
+  var _useState3 = react.useState(true),
       _useState4 = _slicedToArray(_useState3, 2),
       isLoading = _useState4[0],
       setIsLoading = _useState4[1];
@@ -510,7 +517,7 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
     });
   };
 
-  React$1.useEffect(function () {
+  react.useEffect(function () {
     fetchData();
   }, [address]);
   var columns = [{
@@ -522,11 +529,12 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
     dataIndex: 'from',
     key: 'from',
     render: function render(text) {
-      return /*#__PURE__*/React__default["default"].createElement("a", {
+      return /*#__PURE__*/jsxRuntime.jsx("a", {
         href: blockexplorerURL + 'address/' + text,
         target: "_blank",
-        rel: "noopener noreferrer"
-      }, truncateEthAddress__default["default"](text));
+        rel: "noopener noreferrer",
+        children: truncateEthAddress__default["default"](text)
+      });
     }
   }, {
     title: 'To',
@@ -534,26 +542,37 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
     key: 'to',
     render: function render(text, record) {
       if (!record.isMultipleTransfers) {
-        return /*#__PURE__*/React__default["default"].createElement("a", {
+        return /*#__PURE__*/jsxRuntime.jsx("a", {
           href: blockexplorerURL + 'address/' + text,
           target: "_blank",
-          rel: "noopener noreferrer"
-        }, truncateEthAddress__default["default"](text));
+          rel: "noopener noreferrer",
+          children: truncateEthAddress__default["default"](text)
+        });
       } else {
         //This is the content that we provide to the popover table.
-        var multiTransfersContent = /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(antd.Table, {
-          dataSource: record.multipleTransfers,
-          columns: erc20TransfersHelper.multiTransfersTableColumns
-        }), /*#__PURE__*/React__default["default"].createElement(icons.InfoCircleOutlined, null), /*#__PURE__*/React__default["default"].createElement("em", null, " There are multiple transfer events in this single transaction."));
-        return /*#__PURE__*/React__default["default"].createElement(antd.Popover, {
+        var multiTransfersContent = /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(antd.Table, {
+            dataSource: record.multipleTransfers,
+            columns: erc20TransfersHelper.multiTransfersTableColumns(blockexplorerURL)
+          }), /*#__PURE__*/jsxRuntime.jsx(icons.InfoCircleOutlined, {}), /*#__PURE__*/jsxRuntime.jsx("em", {
+            children: " There are multiple transfer events in this single transaction."
+          })]
+        });
+
+        return /*#__PURE__*/jsxRuntime.jsx(antd.Popover, {
           placement: "rightBottom",
           content: multiTransfersContent,
-          trigger: "focus"
-        }, /*#__PURE__*/React__default["default"].createElement(antd.Button, null, " ", /*#__PURE__*/React__default["default"].createElement("span", null, /*#__PURE__*/React__default["default"].createElement(icons.WarningOutlined, {
-          style: {
-            fontSize: '1em'
-          }
-        }), " Multiple")));
+          trigger: "focus",
+          children: /*#__PURE__*/jsxRuntime.jsxs(antd.Button, {
+            children: [" ", /*#__PURE__*/jsxRuntime.jsxs("span", {
+              children: [/*#__PURE__*/jsxRuntime.jsx(icons.WarningOutlined, {
+                style: {
+                  fontSize: '1em'
+                }
+              }), " Multiple"]
+            })]
+          })
+        });
       }
     }
   }, {
@@ -565,18 +584,19 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
     dataIndex: 'tokenAddress',
     key: 'tokenAddress',
     render: function render(text) {
-      return /*#__PURE__*/React__default["default"].createElement("a", {
+      return /*#__PURE__*/jsxRuntime.jsx("a", {
         href: blockexplorerURL + 'address/' + text,
         target: "_blank",
-        rel: "noopener noreferrer"
-      }, truncateEthAddress__default["default"](text));
+        rel: "noopener noreferrer",
+        children: truncateEthAddress__default["default"](text)
+      });
     }
   }, {
     title: 'Token Logo',
     dataIndex: 'tokenLogo',
     key: 'tokenLogo',
     render: function render(text) {
-      return /*#__PURE__*/React__default["default"].createElement("img", {
+      return /*#__PURE__*/jsxRuntime.jsx("img", {
         alt: "token logo",
         onError: handleImgError,
         src: text,
@@ -600,23 +620,25 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
     dataIndex: 'txnHash',
     key: 'txnHash',
     render: function render(txnHash) {
-      return /*#__PURE__*/React__default["default"].createElement("a", {
+      return /*#__PURE__*/jsxRuntime.jsx("a", {
         href: blockexplorerURL + 'tx/' + txnHash,
         target: "_blank",
-        rel: "noopener noreferrer"
-      }, " View Transaction");
+        rel: "noopener noreferrer",
+        children: " View Transaction"
+      });
     }
   }];
 
   if (isLoading) {
-    return /*#__PURE__*/React__default["default"].createElement(antd.Table, {
+    return /*#__PURE__*/jsxRuntime.jsx(antd.Table, {
       loading: true
     });
   } else if (!isLoading && txnData) {
     console.log("txnData", txnData);
-    return /*#__PURE__*/React__default["default"].createElement(antd.Table, {
+    return /*#__PURE__*/jsxRuntime.jsx(antd.Table, {
       dataSource: txnData,
-      columns: columns
+      columns: columns,
+      rowKey: "txnHash"
     });
   }
 };
