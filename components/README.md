@@ -8,13 +8,9 @@ Please refer to the [Covalent API reference](https://www.covalenthq.com/docs/api
 
 ## Quick Start
 
-Install with npm: `npm install @covalenthq/web3-components`
+1. Install with npm: `npm install @covalenthq/web3-components` or install with yarn: `yarn install @covalenthq/web3-components`
 
-or
-
-Install with yarn: `yarn install @covalenthq/web3-components`
-
-Create an `.env` file and set your [Covalent API Key](https://covalenthq.com/platform/?utm_source=covalent-react&utm_medium=web3-resource) to the variable: `REACT_APP_COVALENT_API_KEY=`
+2. Create an `.env` file and set the variable: `REACT_APP_COVALENT_API_KEY=`[Your Covalent API Key](https://covalenthq.com/platform/?utm_source=covalent-react&utm_medium=web3-resource)
 
 ## Web3 Components
 
@@ -48,16 +44,15 @@ function App() {
 
 export default App;
 ```  
-
 ---
 
 ### `<ERC20Transfers />`  
 
 **Demo ERC20Transfers page:**: https://covalenthq.github.io/erc20Transfers/
 
-![ERC20Transfers Demo](https://res.cloudinary.com/dl4murstw/image/upload/v1660076187/Erc20Transfer_Demo6_ptashh.gif)
+![ERC20Transfers Demo](https://github.com/covalenthq/web3-resources/blob/main/components/src/assets/erc20Transfers-rc-demo.gif?raw=true)
 
-The ERC20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an address and chainId as inputs. Powered by Covalent's [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint.
+The ERC20Transfers component returns a paginated list of all the ERC20 token transfers of a wallet address on a particular chain. It takes an `address` and `chainId` as inputs and uses the [`Get Transactions for Address`](https://www.covalenthq.com/docs/api/#/0/Get%20transactions%20for%20address/USD/1) endpoint.
 
 #### Props:
 - `address`  
@@ -104,3 +99,33 @@ function App() {
 export default App;
 
 ```
+---
+
+### `<TokenHolders />`
+
+![Token holders demo](https://github.com/covalenthq/web3-resources/blob/main/components/src/assets/token-holders-rc-demo.png?raw=true)
+
+The `<TokenHolders />` component provides a complete and paginated token holders table with all the wallet addresses and balances/token IDs for a given ERC20 token or NFT collection `tokenAddress` and `chainId`.
+
+#### Props:
+- `tokenAddress`
+- `chainId`
+
+
+#### Sample code:
+```jsx
+import { TokenHolders } from '@covalenthq/web3-components';
+
+function App() {
+  return(
+    <div className="TokenHolders">
+      <TokenHolders
+        tokenAddress="0xD417144312DbF50465b1C641d016962017Ef6240"
+        chainId="1"
+      />
+    </div>
+  )
+}
+
+export default App;
+```  
