@@ -635,4 +635,119 @@ var ERC20Transfers = function ERC20Transfers(_ref) {
   }
 };
 
-export { ERC20Transfers, TokenBalances };
+var TokenHolders = function TokenHolders(_ref) {
+  var tokenAddress = _ref.tokenAddress,
+      chainId = _ref.chainId,
+      _ref$blockHeight = _ref.blockHeight,
+      blockHeight = _ref$blockHeight === void 0 ? 'latest' : _ref$blockHeight,
+      _ref$pageSize = _ref.pageSize,
+      pageSize = _ref$pageSize === void 0 ? 99999 : _ref$pageSize;
+
+  var _useState = useState([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      getData = _useState2[1];
+
+  var _useState3 = useState(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isLoading = _useState4[0],
+      setIsLoading = _useState4[1];
+
+  var apiKey = process.env.REACT_APP_COVALENT_API_KEY;
+  useEffect(function () {
+    fetchData();
+  }, [tokenAddress, chainId, blockHeight, pageSize]);
+
+  var handleImgError = function handleImgError(e) {
+    e.target.src = img;
+  };
+
+  var fetchData = function fetchData() {
+    setIsLoading(true);
+    var headers = new Headers();
+    var authString = "".concat(apiKey, ":");
+    headers.set('Authorization', 'Basic ' + btoa(authString));
+    var URL = "https://api.covalenthq.com/v1/".concat(chainId, "/tokens/").concat(tokenAddress, "/token_holders/?quote-currency=USD&format=JSON&block-height=").concat(blockHeight, "&page-size=").concat(pageSize);
+    fetch(URL, {
+      method: 'GET',
+      headers: headers
+    }).then(function (res) {
+      return res.json();
+    }).then(function (response) {
+      setIsLoading(false);
+      getData(response.data.items);
+    });
+  };
+
+  var summaryColumn = [{
+    title: '',
+    dataIndex: 'logo_url',
+    key: 'logo_url',
+    render: function render(text) {
+      return /*#__PURE__*/jsx("img", {
+        src: text,
+        onError: handleImgError,
+        style: {
+          width: '40px',
+          height: '40px'
+        }
+      });
+    }
+  }, {
+    title: 'Name',
+    dataIndex: 'contract_name',
+    key: 'contract_name'
+  }, {
+    title: 'Symbol',
+    dataIndex: 'contract_ticker_symbol',
+    key: 'contract_ticker_symbol'
+  }, {
+    title: 'Token Address',
+    dataIndex: 'contract_address',
+    key: 'contract_address'
+  }, {
+    title: 'Total Supply',
+    dataIndex: 'total_supply',
+    key: 'total_supply'
+  }, {
+    title: 'Block Height',
+    dataIndex: 'block_height',
+    key: 'block_height'
+  }];
+  var columns = [{
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address'
+  }, {
+    title: 'Balance / Token ID',
+    dataIndex: 'balance',
+    key: 'balance',
+    sorter: function sorter(a, b) {
+      return a.balance - b.balance;
+    },
+    render: function render(_, item) {
+      return Number.isInteger(item.balance / Math.pow(10, item.contract_decimals)) ? item.balance / Math.pow(10, item.contract_decimals) : (item.balance / Math.pow(10, item.contract_decimals)).toFixed(4);
+    }
+  }];
+
+  if (isLoading) {
+    return /*#__PURE__*/jsx(Table, {
+      loading: true
+    });
+  } else if (!isLoading && data) {
+    return /*#__PURE__*/jsxs(Fragment, {
+      children: [/*#__PURE__*/jsx(Table, {
+        columns: summaryColumn,
+        dataSource: data.slice(0, 1),
+        pagination: false,
+        rowKey: "contract_address"
+      }), /*#__PURE__*/jsx(Table, {
+        columns: columns,
+        dataSource: data,
+        rowKey: "address"
+      })]
+    });
+  }
+};
+
+export { ERC20Transfers, TokenBalances, TokenHolders };
