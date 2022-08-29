@@ -14,6 +14,13 @@ Please refer to the [Covalent API reference](https://www.covalenthq.com/docs/api
 
 ## Web3 Components
 
+- [`<TokenBalances />`](#tokenbalances)
+- [`<ERC20Transfers />`](#erc20transfers)
+- [`<TokenHolders />`](#tokenholders)
+
+&nbsp;
+---
+
 ### `<TokenBalances />`
 
 **Demo Wallet Dashboard:** https://covalenthq.github.io/Wallet-Dashboard-Demo/
