@@ -117,6 +117,8 @@ The `<TokenHolders />` component provides a complete and paginated token holders
 #### Props:
 - `tokenAddress`
 - `chainId`
+- `blockHeight` - (optional, defaults to: `latest`)
+- `pageSize` - (optional, defaults to: `99999`)
 
 
 #### Sample code:
