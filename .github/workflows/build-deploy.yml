@@ -21,12 +21,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 13.x
-
-    - name: CD into demo-app
-      run: cd components/demo-app
     
     - name: Install NPM packages
-      run: npm ci
+      run: cd components/demo-app/ && npm ci
     
     - name: Build project
       run: npm run build
