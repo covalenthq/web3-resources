@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": "https://covalenthq.github.io/web3-resources",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@covalenthq/web3-components": "file:..",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
