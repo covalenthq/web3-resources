@@ -8,11 +8,14 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "antd": "^4.22.8",
+    "dotenv": "^16.0.2",
     "gh-pages": "^4.0.0",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "file:../node_modules/react-scripts"
+    "react-scripts": "file:../node_modules/react-scripts",
+    "truncate-eth-address": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
