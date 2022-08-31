@@ -12,6 +12,22 @@ Please refer to the [Covalent API reference](https://www.covalenthq.com/docs/api
 
 2. Create an `.env` file and set the variable: `REACT_APP_COVALENT_API_KEY=`[Your Covalent API Key](https://covalenthq.com/platform/?utm_source=covalent-react&utm_medium=web3-resource)
 
+&nbsp;
+## Demo App
+This components folder comes with a sample `create-react-app` called `demo-app` which uses `@covalenthq/web3-components`. You can use the `demo-app` to test any changes or customizations made to the components. 
+
+To run the demo app:
+
+1. `cd demo-app`
+2. Create an `.env` file and set the variable: `REACT_APP_COVALENT_API_KEY=`[Your Covalent API Key](https://covalenthq.com/platform/?utm_source=covalent-react&utm_medium=web3-resource)
+2. `npm i && npm start`
+
+The demo app will run at `http://localhost:3000/` with each tab demonstrating a component:
+
+![Demo App](../images/demo-app.png)
+
+
+&nbsp;
 ## Web3 Components
 
 - [`<TokenBalances />`](#tokenbalances)
