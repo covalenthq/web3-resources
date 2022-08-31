@@ -30,9 +30,9 @@ The demo app will run at `http://localhost:3000/` with each tab demonstrating a 
 &nbsp;
 ## Web3 Components
 
-- [`<TokenBalances />`](#tokenbalances)
-- [`<ERC20Transfers />`](#erc20transfers)
-- [`<TokenHolders />`](#tokenholders)
+- [`<TokenBalances />`](#tokenbalances-)
+- [`<ERC20Transfers />`](#erc20transfers-)
+- [`<TokenHolders />`](#tokenholders-)
 
 &nbsp;
 ---
