@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { HashRouter, Routes, Route, Link} from "react-router-dom";
 import { Input, Menu } from 'antd';
 import './App.css';
 import { TokenBalances, ERC20Transfers, TokenHolders} from '@covalenthq/web3-components';
@@ -100,14 +100,14 @@ function App() {
   }
   
   return (
-    <Router>
+    <HashRouter>
         <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
         <Routes>
           <Route path="/" element={<SearchTokenBalances />} />
           <Route path="/erc20Transfers" element={<SearchERC20Transfers />} />
           <Route path="/tokenHolders" element={<SearchTokenHolders />} />
         </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 

@@ -1,7 +1,6 @@
 {
   "name": "demo-app",
   "version": "0.1.0",
-  "homepage": "https://covalenthq.github.io/web3-resources",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@covalenthq/web3-components": "file:..",
