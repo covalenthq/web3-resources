@@ -24,7 +24,7 @@ To run the demo app:
 
 The demo app will run at `http://localhost:3000/` with each tab demonstrating a component:
 
-![Demo App](../images/demo-app.png)
+![Demo App](https://github.com/covalenthq/web3-resources/blob/main/components/src/assets/demo-app.png?raw=true)
 
 
 &nbsp;
