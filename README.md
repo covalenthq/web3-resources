@@ -40,12 +40,19 @@ The [web3 components library](./components/) in (`/components`) is powered by th
 
 &nbsp;
 ## Web3 Code Alongs
-Use these 'Code Along' notebooks to extend your web3 knowledge. Open up these notebooks using [Jupyter](https://jupyter.org/), [Google Colab](https://colab.research.google.com/) or your favourite IPython environment. 
+Use these 'Code Along' notebooks to extend your web3 knowledge. Open up these notebooks using [Jupyter](https://jupyter.org/), [Google Colab](https://colab.research.google.com/) or your favourite IPython environment. Follow these steps:
+
+1. Fork this entire repo to your GitHub account
+2. Click on the link to any of the Code Along notebooks below
+3. Copy the URL of the notebook (ends in `.ipynb`)
+4. Open up your favourite IPython environment (e.g. https://colab.research.google.com/)
+5. Use the option to open a new notebook using GitHub and paste in the notebook URL
+
 
 |[1. Intro to Wallets in Web3](./code-alongs/Introduction_to_Wallets_in_Web3.ipynb) | [2. Intro to Accessing Blockchain Data](./code-alongs/Introduction_to_Accessing_Blockchain_Data.ipynb) |
 | :-----------: | :-----------: |
 |[![Intro to Wallets in Web3](images/code-along-wallets-web3.png)](./code-alongs/Introduction_to_Wallets_in_Web3.ipynb)| [![Intro to Accessing Blockchain Data](images/code-along-access-blockchain-data.png)](./code-alongs/Introduction_to_Accessing_Blockchain_Data.ipynb) |
-| [3. Why JSON-RPC doesn't scale](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
+| [**3. Why JSON-RPC doesn't scale**](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
 | [![Why JSON-RPC doesn't scale](images/code-along-jsonrpc-scaling.png)](./code-alongs/Why_JSON_RPC_doesn't_scale_for_Web3_data.ipynb) | |
 
 &nbsp;
