@@ -18,11 +18,12 @@ This components folder comes with a sample `create-react-app` called `demo-app` 
 
 To run the demo app:
 
-1. `cd demo-app`
-2. Create an `.env` file and set the variable: `REACT_APP_COVALENT_API_KEY=`[Your Covalent API Key](https://covalenthq.com/platform/?utm_source=covalent-react&utm_medium=web3-resource)
-2. `npm i && npm start`
+1. In the `/components` folder, run `npm i`
+2. Then `cd demo-app`
+3. Create an `.env` file and set the variable: `REACT_APP_COVALENT_API_KEY=`[Your Covalent API Key](https://covalenthq.com/platform/?utm_source=covalent-react&utm_medium=web3-resource)
+2. Then `npm i && npm start` from within the `demo-app` folder
 
-The demo app will run at `http://localhost:3000/` with each tab demonstrating a component:
+The demo app will run at `http://localhost:3000/` with each tab demonstrating a supported component:
 
 ![Demo App](https://github.com/covalenthq/web3-resources/blob/main/components/src/assets/demo-app.png?raw=true)
 
