@@ -9,7 +9,7 @@ All resources use the **Covalent Unified API** to pull on-chain data seamlessly 
 Fork this repo to get started. 
 
 - [App Templates](#web3-app-templates) - ready-to-use templates for common web3 use cases
-- [Components Library](#web3-components-library) - plug & play styled web3 React components
+- [Components Library](https://github.com/covalenthq/web3-components) - plug & play styled web3 React components
 - [Code Alongs](#web3-code-alongs) - extend your web3 knowledge with these guided Python notebooks
 - [Partner Resources](#web3-partners) - templates and other developer resources developed by our web3 partners
 
@@ -36,7 +36,7 @@ If you:
 
 &nbsp;
 ## Web3 Components Library
-The [web3 components library](./components/) in (`/components`) is powered by the Covalent Unified API and consists of useful React components to fetch any on-chain data across any Covalent supported blockchain networks.
+The [web3 components library](https://github.com/covalenthq/web3-components) is powered by the Covalent Unified API and consists of useful React components to fetch any on-chain data across any Covalent supported blockchain networks.
 
 &nbsp;
 ## Web3 Code Alongs
